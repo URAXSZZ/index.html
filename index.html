@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Türk kültürü</title>
+<title>Türk Yemekleri</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
     body {
@@ -65,17 +65,24 @@
         background: none;
         transform: none;
     }
+
+    /* Açılır resim stili */
     #seciliResim {
         display: none;
-        width: 250px;
-        max-width: 80%; /* Mobilde taşmaz */
         position: fixed;
-        top: 20vh; /* Ekranın üstünden 20% aşağıda */
-        left: 50%;  /* Ortalamak için */
-        transform: translateX(-50%);
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 15px;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+        z-index: 100;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    #seciliResim:active {
+        transform: translate(-50%, -50%) scale(0.98);
     }
 
     @media (max-width: 600px) {
@@ -106,7 +113,7 @@
                 <li onclick="showImage('kebap.jpeg')">Kebap</li>
                 <li onclick="showImage('pide.jpeg')">Pide</li>
                 <li onclick="showImage('Döner.jpeg')">Döner</li>
-                <li onclick="showImage('lahmacun.jpeg')"> Lahmacun</li>
+                <li onclick="showImage('lahmacun.jpeg')">Lahmacun</li>
                 <li onclick="showImage('mantı.jpeg')">Mantı</li>
                 <li onclick="showImage('köfte.jpeg')">Köfte</li>
             </ul>
@@ -116,7 +123,7 @@
                 <li onclick="showImage('baklava.jpeg')">Baklava</li>
                 <li onclick="showImage('künefe.jpeg')">Künefe</li>
                 <li onclick="showImage('kadayıf.jpeg')">Kadayıf</li>
-                <li onclick="showImage('sütlaç).jpeg')">Sütlaç</li>
+                <li onclick="showImage('sütlaç.jpeg')">Sütlaç</li>
                 <li onclick="showImage('tulumba.jpeg')">Tulumba</li>
                 <li onclick="showImage('helva.jpeg')">Helva</li>
                 <li onclick="showImage('pişmaniye.jpeg')">Pişmaniye</li>
@@ -135,19 +142,16 @@
     </ul>
 </div>
 
-<img id="seciliResim" src="">
+<img id="seciliResim" src="" onclick="this.style.display='none'">
 
 <script>
 function showImage(dosyaAdi) {
     const img = document.getElementById('seciliResim');
     img.src = dosyaAdi;
     img.style.display = 'block';
-
-    setTimeout(() => {
-        img.style.display = 'none';
-    }, 4000); // 4 saniye görünecek
 }
 
+// Arka plan değişimi
 const resimler = ['arka.jpeg', 'Türkiye.jpeg', 'istanbul.jpeg', 'kapadokya.jpeg'];
 let index = 0;
 setInterval(() => {
