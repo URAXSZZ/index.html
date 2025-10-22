@@ -66,21 +66,28 @@
         transform: none;
     }
     #seciliResim {
-    display: none;
-    width: 250px;
-    position: fixed;
-    top: 150px; 
-    right: 20px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    z-index: 10;
-}
+        display: none;
+        width: 250px;
+        max-width: 80%; /* Mobilde taşmaz */
+        position: fixed;
+        top: 20vh; /* Ekranın üstünden 20% aşağıda */
+        left: 50%;  /* Ortalamak için */
+        transform: translateX(-50%);
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        z-index: 10;
+    }
 
+    @media (max-width: 600px) {
+        h1 { font-size: 2rem; }
+        h3 { font-size: 1.2rem; }
+        ul li { font-size: 1rem; }
+    }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Türkiyenin zenginliği hakkında Bilgiler</h1>
+    <h1>Türkiye'nin zenginliği hakkında Bilgiler</h1>
     <h3>Yöresel yemekler:</h3>
     <ul>
         <li>Çorba
@@ -102,7 +109,6 @@
                 <li onclick="showImage('lahmacun.jpeg')"> Lahmacun</li>
                 <li onclick="showImage('mantı.jpeg')">Mantı</li>
                 <li onclick="showImage('köfte.jpeg')">Köfte</li>
-                
             </ul>
         </li>
         <li>Tatlılar
@@ -110,10 +116,10 @@
                 <li onclick="showImage('baklava.jpeg')">Baklava</li>
                 <li onclick="showImage('künefe.jpeg')">Künefe</li>
                 <li onclick="showImage('kadayıf.jpeg')">Kadayıf</li>
-                <li onclick="showImage('sütlaç.jpeg')">Sütlaç</li>
+                <li onclick="showImage('sütlaç).jpeg')">Sütlaç</li>
                 <li onclick="showImage('tulumba.jpeg')">Tulumba</li>
                 <li onclick="showImage('helva.jpeg')">Helva</li>
-                <li onclick="showImage('pişmaniye.jpeg')">pişmaniye</li>
+                <li onclick="showImage('pişmaniye.jpeg')">Pişmaniye</li>
             </ul>
         </li>
     </ul>
@@ -123,11 +129,9 @@
         <li onclick="showImage('hat_sanati.jpeg')">Hat sanatı</li>
     </ul>
 
-    <h3>Tarihi yerlerimiz
+    <h3>Tarihi yerlerimiz</h3>
     <ul>
-        <li onclick="showImage('yer.jpeg')">yakında</li>
-    </ul>
-
+        <li onclick="showImage('yer.jpeg')">Yakında</li>
     </ul>
 </div>
 
@@ -141,7 +145,7 @@ function showImage(dosyaAdi) {
 
     setTimeout(() => {
         img.style.display = 'none';
-    }, 2350); 
+    }, 4000); // 4 saniye görünecek
 }
 
 const resimler = ['arka.jpeg', 'Türkiye.jpeg', 'istanbul.jpeg', 'kapadokya.jpeg'];
@@ -152,6 +156,5 @@ setInterval(() => {
     document.body.style.backgroundImage = `url('${resimler[index]}')`;
 }, 5000);
 </script>
-
 </body>
 </html>
