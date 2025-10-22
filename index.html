@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Türk kültürü</title>
+<title>Türk Yemekleri</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
     body {
@@ -81,7 +81,7 @@
 <body>
 <div class="container">
     <h1>Türkiyenin zenginliği hakkında Bilgiler</h1>
-    <h3>Yemek türleri:</h3>
+    <h3>Yöresel yemekler:</h3>
     <ul>
         <li>Çorba
             <ul>
@@ -97,11 +97,23 @@
                 <li onclick="showImage('sarma.jpeg')">Sarma</li>
                 <li onclick="showImage('cigkofte.jpeg')">Çiğköfte</li>
                 <li onclick="showImage('kebap.jpeg')">Kebap</li>
+                <li onclick="showImage('pide.jpeg')">Pide</li>
+                <li onclick="showImage('Döner.jpeg')">Döner</li>
+                <li onclick="showImage('lahmacun.jpeg')"> Lahmacun</li>
+                <li onclick="showImage('mantı.jpeg')">Mantı</li>
+                <li onclick="showImage('köfte.jpeg')">Köfte</li>
+                
             </ul>
         </li>
         <li>Tatlılar
             <ul>
                 <li onclick="showImage('baklava.jpeg')">Baklava</li>
+                <li onclick="showImage('künefe.jpeg')">Künefe</li>
+                <li onclick="showImage('kadayıf.jpeg')">Kadayıf</li>
+                <li onclick="showImage('sütlaç.jpeg')">Sütlaç</li>
+                <li onclick="showImage('tulumba.jpeg')">Tulumba</li>
+                <li onclick="showImage('helva.jpeg')">Helva</li>
+                <li onclick="showImage('pişmaniye.jpeg')">pişmaniye</li>
             </ul>
         </li>
     </ul>
@@ -109,6 +121,13 @@
     <ul>
         <li onclick="showImage('ebru.jpeg')">Ebru sanatı</li>
         <li onclick="showImage('hat_sanati.jpeg')">Hat sanatı</li>
+    </ul>
+
+    <h3>Tarihi yerlerimiz
+    <ul>
+        <li onclick="showImage('yer.jpeg')">yakında</li>
+    </ul>
+
     </ul>
 </div>
 
@@ -119,6 +138,10 @@ function showImage(dosyaAdi) {
     const img = document.getElementById('seciliResim');
     img.src = dosyaAdi;
     img.style.display = 'block';
+
+    setTimeout(() => {
+        img.style.display = 'none';
+    }, 2350); 
 }
 
 const resimler = ['arka.jpeg', 'Türkiye.jpeg', 'istanbul.jpeg', 'kapadokya.jpeg'];
@@ -129,5 +152,6 @@ setInterval(() => {
     document.body.style.backgroundImage = `url('${resimler[index]}')`;
 }, 5000);
 </script>
+
 </body>
 </html>
