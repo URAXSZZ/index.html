@@ -3,97 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Türk Yemekleri</title>
+<title>Türk kültürü ve Tarih</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        color: #fff;
-        background-image: url('arka.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        transition: background-image 1s ease;
-        min-height: 100vh;
-        position: relative;
-    }
-    .container {
-        max-width: 900px;
-        margin: 50px auto;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    }
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 600;
-        background: linear-gradient(90deg, #bbbfbd, #000000);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    h3 {
-        font-size: 1.5rem;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
-    ul {
-        list-style: none;
-        padding-left: 0;
-    }
-    ul li {
-        font-size: 1.2rem;
-        margin: 8px 0;
-        padding: 8px 12px;
-        border-radius: 10px;
-        transition: 0.3s;
-        cursor: pointer;
-    }
-    ul li:hover {
-        background: rgba(255,255,255,0.2);
-        transform: translateX(5px);
-    }
-    ul li ul li {
-        font-size: 1rem;
-        padding-left: 20px;
-        background: none;
-        transform: none;
-    }
-
-    /* Açılır resim stili */
-    #seciliResim {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 90%;
-        max-height: 80%;
-        border-radius: 15px;
-        box-shadow: 0 4px 25px rgba(0,0,0,0.7);
-        z-index: 100;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-    #seciliResim:active {
-        transform: translate(-50%, -50%) scale(0.98);
-    }
-
-    @media (max-width: 600px) {
-        h1 { font-size: 2rem; }
-        h3 { font-size: 1.2rem; }
-        ul li { font-size: 1rem; }
-    }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-image: url('arka.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background-image 1s ease;
+    position: relative;
+}
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #bbbfbd, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h3 { font-size: 1.5rem; margin-top: 20px; margin-bottom: 10px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+ul { list-style: none; padding-left: 0; }
+ul li { font-size: 1.2rem; margin: 8px 0; padding: 8px 12px; border-radius: 10px; transition: 0.3s; cursor: pointer; }
+ul li:hover { background: rgba(255,255,255,0.2); transform: translateX(5px); }
+ul li ul li { font-size: 1rem; padding-left: 20px; background: none; transform: none; }
+@media (max-width: 600px) { h1 { font-size: 2rem; } h3 { font-size: 1.2rem; } ul li { font-size: 1rem; } }
+.top-right-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    background-color: #1E90FF;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1000;
+}
+.top-right-btn:hover { background-color: #0b5ea8; }
+#seciliResim {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#seciliResim:active { transform: translate(-50%, -50%) scale(0.98); }
 </style>
 </head>
 <body>
-<div class="container">
+
+<button id="toggleBtn" class="top-right-btn">Tarihi İçerik</button>
+
+<div id="mainContent" class="container">
     <h1>Türkiye'nin zenginliği hakkında Bilgiler</h1>
     <h3>Yöresel yemekler:</h3>
     <ul>
@@ -118,28 +104,46 @@
                 <li onclick="showImage('köfte.jpeg')">Köfte</li>
             </ul>
         </li>
-        <li>Tatlılar
-            <ul>
-                <li onclick="showImage('baklava.jpeg')">Baklava</li>
-                <li onclick="showImage('künefe.jpeg')">Künefe</li>
-                <li onclick="showImage('kadayıf.jpeg')">Kadayıf</li>
-                <li onclick="showImage('sütlaç.jpeg')">Sütlaç</li>
-                <li onclick="showImage('tulumba.jpeg')">Tulumba</li>
-                <li onclick="showImage('helva.jpeg')">Helva</li>
-                <li onclick="showImage('pişmaniye.jpeg')">Pişmaniye</li>
-            </ul>
-        </li>
     </ul>
     <h3>Sanatlarımız:</h3>
     <ul>
         <li onclick="showImage('ebru.jpeg')">Ebru sanatı</li>
         <li onclick="showImage('hat_sanati.jpeg')">Hat sanatı</li>
     </ul>
+</div>
 
-    <h3>Tarihi yerlerimiz</h3>
+<div id="newContent" class="container" style="display:none;">
+    <h1>Tarihimiz</h1>
+    <p>Bu içerik gösteriliyor. Eski içeriğe geri dönmek için aşağıdaki butona tıklayın.</p>
+    <h3>Kurtuluş Savaşı dönemi: 1919-1923</h3>
     <ul>
-        <li onclick="showImage('yer.jpeg')">Yakında</li>
+        <li>Türk Kurtuluş Savaşı, I. Dünya Savaşı'ndan yenik çıkan Osmanlı Devleti'nin İtilaf Devletleri'nce işgali sonucunda Mîsâk-ı Millî sınırları içinde ülke bütünlüğünü korumak için girişilen çok cepheli siyasi ve askeri mücadeledir. 1919-1922 yılları arasında gerçekleşmiş ve 11 Ekim 1922'de imzalanan Mudanya Mütarekesi ile fiilen, 24 Temmuz 1923'te imzalanan Lozan Antlaşması ile resmen sona ermiştir.</li>
+        <h3>Tek partili dönem: 1923-1945
+        <ul>
+            <li>Atatürk, 24 Nisan 1920 ve 13 Ağustos 1923 tarihlerinde TBMM Başkanlığına seçildi. Bu başkanlık görevi, devlet-hükûmet başkanlığı düzeyindeydi. 29 Ekim 1923 tarihinde Cumhuriyet ilan edildi ve Atatürk ilk cumhurbaşkanı seçildi. Anayasa gereğince dört yılda bir cumhurbaşkanlığı seçimleri yenilendi. 1927, 1931, 1935 yıllarında TBMM Atatürk'ü yeniden cumhurbaşkanlığına seçti</li>
+        </ul>
+        <h3>Mustafa Kemal Atatürk: 1923-1938
+            <ul>
+                <li>Atatürk dönemi iç politikası devrimleri ve yapılan yenilikleri kapsar.
+
+Atatürk Halk Fırkası adıyla bir parti kurmak niyetini ve siyasi fırkaların gerekliliğini 7 Şubat 1923'te Balıkesir Paşa Camii'nde halka hitaben yaptığı, halkçılık temeline dayalı bir fırkanın kurulması üzerinde durduğu konuşmada
+
+'Halk Fırkası dediğimiz zaman bunun içinde bir kısım değil, bütün millet dahildir... Halk Fırkası halkımıza terbiye-i siyasiye vermek için bir mektep olacaktır' diyerek belli etmiştir.</li>
+            </ul>
     </ul>
+    <button id="thirdBtn" class="top-right-btn" style="top:auto; bottom:20px;">3. Sayfa</button>
+    <button id="backBtn" class="top-right-btn" style="top:auto; bottom:70px;">Geri Dön</button>
+</div>
+
+<div id="thirdContent" class="container" style="display:none;">
+    <h1>Üçüncü Sayfa İçeriği</h1>
+    <ul>
+        <li>Bilgi 1</li>
+        <li>Bilgi 2</li>
+        <li>Bilgi 3</li>
+        <li>Bilgi 4</li>
+    </ul>
+    <button id="backThirdBtn" class="top-right-btn" style="top:auto; bottom:20px;">Geri Dön</button>
 </div>
 
 <img id="seciliResim" src="" onclick="this.style.display='none'">
@@ -151,7 +155,6 @@ function showImage(dosyaAdi) {
     img.style.display = 'block';
 }
 
-// Arka plan değişimi
 const resimler = ['arka.jpeg', 'Türkiye.jpeg', 'istanbul.jpeg', 'kapadokya.jpeg'];
 let index = 0;
 setInterval(() => {
@@ -159,6 +162,38 @@ setInterval(() => {
     if(index >= resimler.length) index = 0;
     document.body.style.backgroundImage = `url('${resimler[index]}')`;
 }, 5000);
+
+const mainContent = document.getElementById('mainContent');
+const newContent = document.getElementById('newContent');
+const thirdContent = document.getElementById('thirdContent');
+const toggleBtn = document.getElementById('toggleBtn');
+const backBtn = document.getElementById('backBtn');
+const thirdBtn = document.getElementById('thirdBtn');
+const backThirdBtn = document.getElementById('backThirdBtn');
+
+toggleBtn.addEventListener('click', () => {
+    mainContent.style.display = 'none';
+    newContent.style.display = 'block';
+    toggleBtn.style.display = 'none';
+});
+
+backBtn.addEventListener('click', () => {
+    newContent.style.display = 'none';
+    mainContent.style.display = 'block';
+    toggleBtn.style.display = 'block';
+});
+
+thirdBtn.addEventListener('click', () => {
+    newContent.style.display = 'none';
+    thirdContent.style.display = 'block';
+});
+
+backThirdBtn.addEventListener('click', () => {
+    thirdContent.style.display = 'none';
+    newContent.style.display = 'block';
+});
 </script>
 </body>
 </html>
+
+
